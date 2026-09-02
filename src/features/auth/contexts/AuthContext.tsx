@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import type { AuthContextType, AuthResponse, User } from "../types/auth.types";
+import { setAccessToken as setFetchClientAccesToken } from "../../../lib/fetchClient";
 
 // Context exports are intentionally kept with the provider in this module.
 // eslint-disable-next-line react-refresh/only-export-components
@@ -10,6 +11,11 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(null);
+
+
+  useEffect(() =>{
+    setFetchClientAccesToken(accessToken)
+  }, [accessToken]);
 
   const setAuth = (auth: AuthResponse) => {
     setUser(auth.user);
