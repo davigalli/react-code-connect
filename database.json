@@ -1,5 +1,10 @@
 {
-  "user": {},
+  "users": [{
+      "email": "contato@cicatriz.dev",
+      "password": "$2a$12$C2loEOMcAPx36yRFlhsOTOdn.w/yi2L6hYTntGvMmUJQhl.5Ytrk2",
+      "name": "Pedro",
+      "id": 1
+    }],
   "devs": [
     {
       "id": "1",

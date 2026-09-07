@@ -1,4 +1,3 @@
-import { email } from "zod/v4";
 import { fetchClient } from "../../../lib/fetchClient";
 import type {
   AuthResponse,
@@ -8,11 +7,11 @@ import type {
 
 export const authService = {
   login: async (credentials: LoginCredentials): Promise<AuthResponse> => {
-    return fetchClient.post<AuthResponse>("/auth/login", credentials);
+    return fetchClient.post<AuthResponse>("/login", credentials);
   },
 
   register: async (data: RegisterData): Promise<AuthResponse> => {
-    return fetchClient.post<AuthResponse>("/auth/register", {
+    return fetchClient.post<AuthResponse>("/register", {
         email: data.email,
         password: data.password,
         name: data.name
@@ -25,6 +24,6 @@ export const authService = {
   },
 
   refresh: async(): Promise<AuthResponse> => {
-    return fetchClient.post<AuthResponse>('/auth/refresh')
+    return fetchClient.post<AuthResponse>('/refresh')
   },
 };
