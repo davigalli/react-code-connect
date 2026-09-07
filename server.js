@@ -9,6 +9,17 @@ const server = jsonServer.create();
 const router = jsonServer.router('database.json');
 const defaults = jsonServer.defaults();
 
+
+server.use(
+  cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+	methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+	allowedHeaders: ['Content-Type', 'Authorization'],
+	exposedHeaders: ['Set-Cookie'],
+  })
+)
+
 // Permissions: 600 -> only owner can read/write; 644 -> anyone can read, only owner can write
 const rules = {
 	users: 600,
