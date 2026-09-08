@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useState, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import type { DevsContextData, Dev } from '../types/devs.types'
 import { getDevs } from '../services/devsService'
 

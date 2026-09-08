@@ -5,6 +5,8 @@ import type {
   RegisterData,
 } from "../types/auth.types";
 
+const REFRESH_STORAGE_KEY = "@CodeConnect:refreshToken";
+
 export const authService = {
   login: async (credentials: LoginCredentials): Promise<AuthResponse> => {
     return fetchClient.post<AuthResponse>("/login", credentials);
@@ -19,11 +21,15 @@ export const authService = {
   },
 
   logout: async (): Promise<void> => {
-    // futuramente iremos invalidar o refresh token no servidor
+    localStorage.removeItem(REFRESH_STORAGE_KEY);
     return Promise.resolve();
   },
 
   refresh: async(): Promise<AuthResponse> => {
-    return fetchClient.post<AuthResponse>('/refresh')
+    const refreshToken = localStorage.getItem(REFRESH_STORAGE_KEY);
+
+    return fetchClient.post<AuthResponse>('/refresh', {
+      refreshToken,
+    });
   },
 };
