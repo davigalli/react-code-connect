@@ -26,7 +26,6 @@ const rules = {
 	devs: 644,
 };
 
-server.use(cors());
 server.use(defaults);
 
 // Rewriter must come before auth and router
