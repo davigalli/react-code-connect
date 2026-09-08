@@ -1,11 +1,6 @@
 import { API_BASE_URL } from "./api";
 
 let accessToken: string | null = null;
-let isRefreshing = false;
-let failedQueue: Array<{
-    resolve: (value: unknown) => void;
-    reject: (reason?: unknown) => void;
-}> = [];
  
 export function setAccessToken(token: string | null){
 
