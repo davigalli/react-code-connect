@@ -1,10 +1,18 @@
 {
-  "users": [{
+  "users": [
+    {
       "email": "contato@cicatriz.dev",
       "password": "$2a$12$C2loEOMcAPx36yRFlhsOTOdn.w/yi2L6hYTntGvMmUJQhl.5Ytrk2",
       "name": "Pedro",
       "id": 1
-    }],
+    },
+    {
+      "email": "cont.ato@cicatriz.dev",
+      "password": "$2a$10$nMWxZnJ05n0NEo3iABqk9uIaR7O//8hT8dxaSidND.fFcjhABgqXS",
+      "name": "123123",
+      "id": 2
+    }
+  ],
   "devs": [
     {
       "id": "1",
